@@ -23,10 +23,14 @@ router.route('/card')
       .catch(() => res.status(404).send('error fetching from Search server'))
   })
 
-
-//if this works, we'll need one for 
-//      .get(`/search-api/card?label=${label}`)
-//      .get(`/search-api/board?title=${query}`)
-
+router.route('/board')
+  .get((req, res) => {
+    let { title } = req.query;
+    let url = process.env.ENV === 'production' ? process.env.SEARCH_SERVER : `localhost:3001`;
+    axios
+      .get(`http://${url}/search-api/board?title=${title}`)
+      .then(({data}) => res.status(200).send(data))
+      .catch(() => res.status(404).send('error fetching from Search server'))
+  })
 
 export default router;
