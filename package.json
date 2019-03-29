@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon server/entry.js",
+    "build": "webpack -w",
     "test": "NODE_ENV=jest jest --detectOpenHandles --forceExit"
   },
   "repository": {
@@ -28,7 +29,13 @@
     "@babel/register": "^7.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.4",
-    "nodemon": "^1.18.9"
+    "compression-webpack-plugin": "^2.0.0",
+    "grunt": "^1.0.4",
+    "grunt-aws": "^0.7.1",
+    "grunt-contrib-connect": "^2.0.0",
+    "nodemon": "^1.18.9",
+    "webpack": "^4.28.0",
+    "webpack-cli": "^3.1.2"
   },
   "dependencies": {
     "axios": "^0.18.0",
